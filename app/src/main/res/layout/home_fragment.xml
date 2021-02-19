@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.matija.imagerec.HomeViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:context=".HomeFragment">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="25dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/rubik"
+                android:padding="20dp"
+                android:text="@string/home_explanation"
+                app:drawableStartCompat="@drawable/info_pink" />
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+        <include
+            android:id="@+id/take_photo"
+            layout="@layout/image_button_layout"
+            app:image="@{@drawable/camera_pink}"
+            app:text="@{@string/take_photo}" />
+
+        <include
+            android:id="@+id/choose_photo"
+            layout="@layout/image_button_layout"
+            app:image="@{@drawable/gallery_pink}"
+            app:text="@{@string/choose_photo}" />
+
+    </LinearLayout>
+</layout>

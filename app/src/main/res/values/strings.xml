@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ImageRec</string>
+    <string name="home">Home</string>
+    <string name="take_photo">Take photo</string>
+    <string name="choose_photo">Choose photo</string>
+    <string name="home_explanation">To start image processing please take a photo with camera or select photo from gallery.</string>
 </resources>
