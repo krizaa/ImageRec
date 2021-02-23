@@ -7,7 +7,6 @@ class HomeViewModel : ViewModel() {
 
     val uiState: MutableLiveData<LiveDataEvent<UIEvent>> = MutableLiveData()
 
-
     fun takePhotoClicked() {
         uiState.value = LiveDataEvent(UIEvent.TakePhotoClicked)
     }
@@ -15,8 +14,6 @@ class HomeViewModel : ViewModel() {
     fun choosePhotoClicked() {
         uiState.value = LiveDataEvent(UIEvent.ChoosePhotoClicked)
     }
-
-
 
     open class UIEvent {
         object TakePhotoClicked : UIEvent()

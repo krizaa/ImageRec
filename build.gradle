@@ -11,12 +11,17 @@ buildscript {
         lifecycle_version = '2.3.0'
         nav_version = '2.3.3'
         glide_version = '4.12.0'
+        fab_version = '1.0.2'
+        cloudmersive_version = 'v3.62'
     }
 
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
+
     }
+
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.0-beta04"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
@@ -31,6 +36,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 

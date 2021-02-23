@@ -119,7 +119,7 @@ class HomeFragment : Fragment() {
         MediaScannerConnection.scanFile(
             context,
             arrayOf(currentPhotoPath),
-            arrayOf(context?.contentResolver?.getType(Uri.parse(currentPhotoPath))),
+            arrayOf("image/*"),
             null
         )
 
