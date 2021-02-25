@@ -18,8 +18,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.matija.imagerec.databinding.HomeFragmentBinding
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -111,7 +109,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToImageProcessing(path: String = "") {
-        findNavController().navigate(HomeFragmentDirections.actionHomeToProcessImage(if (path.isBlank()) currentPhotoPath else path))
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeToProcessImage(
+                if (path.isBlank()) currentPhotoPath else path,
+                path.isNotBlank()
+            )
+        )
     }
 
     //TODO not working hehe

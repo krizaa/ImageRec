@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ ************************************************************************
+  ~  TAGIT SOLUTIONS CONFIDENTIAL
+  ~  [2010] - [2019] Tagit Solutions Inc.  All Rights Reserved.
+  ~  NOTICE:  All information contained herein is, and remains the property
+  ~  of Tagit Solutions Incorporated and its suppliers, if any.
+  ~  The intellectual and technical concepts contained herein are proprietary
+  ~  to Tagit Solutions Inc. and its suppliers and may be covered by U.S. and
+  ~  Foreign Patents, patents in process, and are protected by trademark,
+  ~  trade secret and/or copyright law.
+  ~  Dissemination of this information or reproduction of this material
+  ~  is strictly forbidden unless prior written permission is obtained
+  ~  from Tagit Solutions Inc.
+  ~ *************************************************************************
+  -->
+<navigation android:id="@+id/nav_graph"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.matija.imagerec.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_home_to_process_image"
+            app:destination="@id/process_image"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/process_image"
+        android:name="com.matija.imagerec.ProcessImageFragment"
+        android:label="@string/process_image"
+        tools:layout="@layout/process_image_fragment">
+        <argument
+            android:name="filePath"
+            app:argType="string"
+            app:nullable="false"
+            />
+        <argument
+            android:name="gallery"
+            app:argType="boolean"
+            android:defaultValue="false"
+            />
+    </fragment>
+
+</navigation>

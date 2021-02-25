@@ -5,4 +5,5 @@
     <string name="choose_photo">Choose photo</string>
     <string name="home_explanation">To start image processing please take a photo with camera or select photo from gallery.</string>
     <string name="process_image">Process image</string>
+    <string name="ok">OK</string>
 </resources>

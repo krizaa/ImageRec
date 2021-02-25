@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.matija.imagerec.ProcessImageViewModel.Action" />
+
+        <variable
+            name="viewModel"
+            type="com.matija.imagerec.ProcessImageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".ProcessImageFragment">
+
+        <com.matija.imagerec.MyImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:elevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.nambimobile.widgets.efab.ExpandableFabLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="10dp">
+
+            <com.nambimobile.widgets.efab.ExpandableFab
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="15dp"
+                app:efab_color="@color/pink_dark"
+                app:efab_icon="@drawable/camera_pink" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.action(Action.RECOGNIZE_FACES)}"
+                android:src="@drawable/face_pink"
+                app:fab_color="@color/pink_sec"
+                app:label_text="Recognize faces" />
+
+            <com.nambimobile.widgets.efab.FabOption
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.action(Action.DESCRIBE_IMAGE)}"
+                android:src="@drawable/text_pink"
+                app:fab_color="@color/pink_sec"
+                app:label_text="Describe image" />
+
+
+        </com.nambimobile.widgets.efab.ExpandableFabLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
