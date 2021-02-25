@@ -1,4 +1,4 @@
-package com.matija.imagerec
+package com.matija.imagerec.viewmodels
 
 import android.content.Context
 import android.net.Uri
@@ -13,6 +13,7 @@ import com.cloudmersive.client.invoker.Configuration
 import com.cloudmersive.client.invoker.auth.ApiKeyAuth
 import com.cloudmersive.client.model.FaceLocateResponse
 import com.cloudmersive.client.model.ImageDescriptionResponse
+import com.matija.imagerec.util.LiveDataEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
@@ -54,16 +55,18 @@ class ProcessImageViewModel : ViewModel() {
             imageDescription.postValue(result)
         } catch (e: ApiException) {
             System.err.println("Exception when calling RecognizeApi#recognizeDescribe")
+            uiState.postValue(LiveDataEvent(UIEvent.ShowAlert("Exception when calling RecognizeApi. The image might be too large. Maximum image size can be 3.5 MB")))
             e.printStackTrace()
         }
     }
 
-    private suspend fun recognizeFaces(imageFile: File)  {
+    private suspend fun recognizeFaces(imageFile: File) {
         try {
             val result = faceApiInstance.faceLocate(imageFile)
             faceSquares.postValue(result)
         } catch (e: ApiException) {
             System.err.println("Exception when calling FaceApi#faceLocate")
+            uiState.postValue(LiveDataEvent(UIEvent.ShowAlert("Exception when calling FaceApi. The image might be too large. Maximum image size can be 3.5 MB")))
             e.printStackTrace()
         }
     }
@@ -71,7 +74,7 @@ class ProcessImageViewModel : ViewModel() {
     fun copyFileFromGallery(context: Context?) = viewModelScope.launch {
         context?.let {
             val newFile = createImageFile(it)
-            val parcelFileDescriptor = context.contentResolver?.openFileDescriptor(Uri.parse(filePath) , "r")
+            val parcelFileDescriptor = context.contentResolver?.openFileDescriptor(Uri.parse(filePath), "r")
             val fileDescriptor = parcelFileDescriptor?.fileDescriptor
             val inStream = FileInputStream(fileDescriptor)
             val outStream = FileOutputStream(newFile)
@@ -100,9 +103,10 @@ class ProcessImageViewModel : ViewModel() {
     open class UIEvent {
         object Loading : UIEvent()
         object StopLoading : UIEvent()
+        class ShowAlert(val message: String) : UIEvent()
     }
 
-    enum class Action{
+    enum class Action {
         RECOGNIZE_FACES,
         DESCRIBE_IMAGE
     }

@@ -1,4 +1,4 @@
-package com.matija.imagerec
+package com.matija.imagerec.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -19,18 +19,18 @@ class MyImageView(context: Context, attributeSet: AttributeSet) : androidx.appco
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val widthRatio = width/imageWidth.toFloat()
-        val heightRatio = height/imageHeight.toFloat()
+        val widthRatio = width / imageWidth.toFloat()
+        val heightRatio = height / imageHeight.toFloat()
         val points = mutableListOf<Float>()
         faces.forEach { face ->
             val bottomY = heightRatio * face.bottomY
             val topY = heightRatio * face.topY
             val leftX = widthRatio * face.leftX
             val rightX = widthRatio * face.rightX
-            points.addAll(arrayOf(leftX, bottomY, rightX, bottomY) )
-            points.addAll(arrayOf(rightX, bottomY, rightX, topY) )
-            points.addAll(arrayOf(rightX, topY, leftX, topY) )
-            points.addAll(arrayOf(leftX, topY, leftX, bottomY) )
+            points.addAll(arrayOf(leftX, bottomY, rightX, bottomY))
+            points.addAll(arrayOf(rightX, bottomY, rightX, topY))
+            points.addAll(arrayOf(rightX, topY, leftX, topY))
+            points.addAll(arrayOf(leftX, topY, leftX, bottomY))
         }
         canvas.drawLines(points.toFloatArray(), paint)
     }

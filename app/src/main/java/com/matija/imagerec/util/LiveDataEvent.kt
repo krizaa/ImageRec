@@ -1,4 +1,4 @@
-package com.matija.imagerec
+package com.matija.imagerec.util
 
 /**
  * Used as a wrapper for data that is exposed via a LiveData that represents an event.

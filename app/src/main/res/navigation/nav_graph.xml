@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.matija.imagerec.HomeFragment"
+        android:name="com.matija.imagerec.view.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/home_fragment" >
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/process_image"
-        android:name="com.matija.imagerec.ProcessImageFragment"
+        android:name="com.matija.imagerec.view.ProcessImageFragment"
         android:label="@string/process_image"
         tools:layout="@layout/process_image_fragment">
         <argument

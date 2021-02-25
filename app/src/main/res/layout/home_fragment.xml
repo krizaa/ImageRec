@@ -7,17 +7,22 @@
 
         <variable
             name="viewmodel"
-            type="com.matija.imagerec.HomeViewModel" />
+            type="com.matija.imagerec.viewmodels.HomeViewModel" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical"
         android:weightSum="1"
-        android:animateLayoutChanges="true"
-        tools:context=".HomeFragment">
+        tools:context=".view.HomeFragment">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -37,11 +42,6 @@
                 android:text="@string/home_explanation"
                 app:drawableStartCompat="@drawable/info_pink" />
         </androidx.cardview.widget.CardView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.15" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

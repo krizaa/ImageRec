@@ -1,7 +1,8 @@
-package com.matija.imagerec
+package com.matija.imagerec.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.matija.imagerec.util.LiveDataEvent
 
 class HomeViewModel : ViewModel() {
 

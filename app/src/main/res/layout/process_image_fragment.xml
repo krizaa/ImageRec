@@ -5,20 +5,20 @@
 
     <data>
 
-        <import type="com.matija.imagerec.ProcessImageViewModel.Action" />
+        <import type="com.matija.imagerec.viewmodels.ProcessImageViewModel.Action" />
 
         <variable
             name="viewModel"
-            type="com.matija.imagerec.ProcessImageViewModel" />
+            type="com.matija.imagerec.viewmodels.ProcessImageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
-        tools:context=".ProcessImageFragment">
+        tools:context=".view.ProcessImageFragment">
 
-        <com.matija.imagerec.MyImageView
+        <com.matija.imagerec.view.MyImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
